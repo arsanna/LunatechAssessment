@@ -1,11 +1,6 @@
 function queryResultClick() {
-    //$("#queryResult").on("click", function () {
     var countryCode = document.getElementById('inputCode').value;
     var countryName = document.getElementById('inputName').value;
-    var data = JSON.stringify({
-        code: countryCode,
-        name: countryName
-    });
 
     $.ajax({
         type: 'POST',

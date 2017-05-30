@@ -27,17 +27,17 @@ public class ReportDao {
     private final static Logger logger = org.slf4j.LoggerFactory.getLogger(ReportDao.class);
 
     private static final String queryHighest =
-            "SELECT c, COUNT(c) FROM Airport a JOIN a.country c " +
+            "SELECT c, COUNT(c) FROM Airport a right JOIN a.country c " +
             "GROUP BY c ORDER BY COUNT(c) DESC";
 
     private static final String queryLowest =
-            "SELECT c,COUNT(c) FROM Airport a JOIN a.country c " +
-            "GROUP BY c ORDER BY COUNT(c) ASC";
+            "SELECT c,COUNT(a) FROM Airport a right JOIN a.country c " +
+            "GROUP BY c ORDER BY COUNT(a) ASC";
 
     private static final String queryRunwayTypes =
             "SELECT DISTINCT c, r.surface FROM Airport a " +
             "JOIN a.country c " +
-            "JOIN a.runways r ";
+            "left JOIN a.runways r ";
 
     private static final String queryRunwayIdents =
             "SELECT r.le_ident, count(1) FROM RunWay r " +

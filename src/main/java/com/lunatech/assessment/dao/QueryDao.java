@@ -19,7 +19,7 @@ public class QueryDao {
     private final static Logger logger = org.slf4j.LoggerFactory.getLogger(QueryDao.class);
 
     private static final String QUERY_INITIAL =
-            "SELECT a FROM Airport a " +
+            "SELECT distinct a FROM Airport a " +
                     "JOIN a.country c " +
                     "LEFT JOIN a.runways r " +
                     "WHERE 1=1 ";
